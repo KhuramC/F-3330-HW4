@@ -6,17 +6,38 @@ import vehicles.*;
 public class VehicleManager {
 
 	
-	public boolean readFromFile(String fileName) {
-		return true;
-	}
+	private static VehicleManager instance = null;
 	
-	public void VehicleManager(String fileName) {
+	private static final String vehicleFilePath = "files/vehicleList.csv";
+	
+	private ArrayList<Vehicle> vehicles;
+	
+	/**
+	 * Private constructor for single instance to be created.
+	 */
+	private VehicleManager() {
 		
 	}
 	
+	/**
+	 * Creates a single instance of VehicleManager if not previously created.
+	 * @return instance of VehicleManager.
+	 */
 	public static VehicleManager getInstance() {
-		return null;
+		if(instance == null) {
+			instance = new VehicleManager();
+		}
+		return instance;
 	}
+	
+	public boolean initializeStock() {
+		return true;
+		
+	}
+
+	
+
+	
 	
 	public void displayAllCarInformation() {
 		
