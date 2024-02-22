@@ -23,6 +23,6 @@ public class Truck extends Vehicle {
 		return "The type of this vehicle is Truck and has brand=" + brand + ", make=" + make + ", modelYear=" + modelYear + ", price=" + price + ", color="
 				+ color + ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders="
 				+ cylinders + ", gasTankCapacity=" + gasTankCapacity + ", and startType=" + startType;
-	}
+	} 
 
 }
