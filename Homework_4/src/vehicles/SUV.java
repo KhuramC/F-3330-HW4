@@ -21,7 +21,7 @@ public class SUV extends Vehicle {
 	}
 	@Override
 	public String toString() {
-		return "The type of this vehicle is Car and has brand=" + brand + ", make=" + make + ", modelYear=" + modelYear + ", price=" + price + ", color="
+		return "The type of this vehicle is SUV and has brand=" + brand + ", make=" + make + ", modelYear=" + modelYear + ", price=" + price + ", color="
 				+ color + ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders="
 				+ cylinders + ", gasTankCapacity=" + gasTankCapacity + ", and startType=" + startType;
 	}
