@@ -16,5 +16,6 @@ public abstract class Vehicle {
     public abstract double calculateMaintenanceCost(double distance); // calculates maintenance cost for a specific vehicle
     public abstract double calculateFuelEfficiency(double distance, double fuelPrice); //calculates the engine efficiency
     public abstract void startEngine(); // prints how the vehicle starts
+    public abstract String toString(); // prints information of vehicle.
     
 }
