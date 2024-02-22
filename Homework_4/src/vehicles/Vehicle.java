@@ -111,4 +111,23 @@ public abstract class Vehicle {
 	public void setStartType(StartMechanism startType) {
 		this.startType = startType;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Vehicle v = ((Vehicle)obj);
+		if(this.brand == v.getBrand() &&
+		this.make == v.getMake() &&
+		this.modelYear == v.getModelYear() &&
+		this.price == v.getPrice() &&
+		this.color == v.getColor() &&
+		this.fuelType == v.getFuelType() &&
+		this.mileage == v.getMileage() &&
+		this.mass == v.getMass() &&
+		this.cylinders == v.getCylinders() &&
+		this.gasTankCapacity == v.getGasTankCapacity() &&
+		this.startType == v.getStartType()) {
+			return true;
+		}
+		return false;
+	}
 }
