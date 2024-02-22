@@ -100,7 +100,18 @@ public class VehicleManager {
 	}
 	
 	public double getAverageFuelEfficiencyOfSUVs(double distance, double fuelPrice) {
-		return -1;
+		if (vehicles.isEmpty()) {
+			return -1;
+		}
+		double totalFuelEfficiency = 0.0;
+		int suvCount = 0;
+		
+		for (Vehicle vehicle : vehicles) {
+			if ()
+		}
+		
+		double average = totalFuelEfficiency/suvCount; 
+		return average;
 	}
 	
 	
