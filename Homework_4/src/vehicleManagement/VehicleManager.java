@@ -149,7 +149,14 @@ public class VehicleManager {
 	}
 	
 	public void displayAllSUVInformation() {
-		
+		for (Vehicle vehicle : vehicleStock) {
+			if (vehicle instanceof SUV) {
+				SUV suv = (SUV) vehicle;
+				System.out.println(suv + 
+						"Fuel Efficiency: " + suv.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
+						+ "Maintenance Cost: " + suv.calculateMaintenanceCost(VehicleManager.distance));
+			}
+		}				
 	}
 	
 	public void displayAllMotorBikeInformation() {
