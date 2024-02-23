@@ -2,6 +2,7 @@ package vehicleManagement;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import vehicles.*;
@@ -74,8 +75,6 @@ public class VehicleManager {
 				double gasTankCapacity = Double.parseDouble(data[10]);
 				StartMechanism startMechanism = StartMechanism.valueOf(data[11]);
 						
-						
-				//,Model,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType
 
 				switch(type) { //creates product based on their type and adds to ArrayList
 				case "Car":
@@ -95,10 +94,6 @@ public class VehicleManager {
 					vehicleList.add(suv);
 					break;
 				}
-				
-				
-				
-				
 			}
 			
 			// This should be unnecessary.
@@ -166,8 +161,18 @@ public class VehicleManager {
 		return true;
 	}
 	
-	public int getNumberOfVehichlesByType(Class clazz) {
-		return -1;
+	/*
+	 * Returns the number of objects in the vehicle list based on the object vehicle type
+	 */
+	public int getNumberOfVehiclesByType(Class clazz) {
+		int count = 0;
+		for (Iterator iterator = vehicleStock.iterator(); iterator.hasNext();) {
+			Vehicle vehicle = (Vehicle) iterator.next();
+			if (isVehicleType(vehicle, clazz)) {
+				count++;
+			}
+		}
+		return count;
 	}
 	
 	public Vehicle getVehicleWithHighestMaintenanceCost(double distance) {
