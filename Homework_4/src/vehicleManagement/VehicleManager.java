@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Random;
 
 import vehicles.*;
 
@@ -166,7 +167,7 @@ public class VehicleManager {
 	 */
 	public int getNumberOfVehiclesByType(Class clazz) {
 		int count = 0;
-		for (Iterator iterator = vehicleStock.iterator(); iterator.hasNext();) {
+		for (Iterator<Vehicle> iterator = vehicleStock.iterator(); iterator.hasNext();) {
 			Vehicle vehicle = (Vehicle) iterator.next();
 			if (isVehicleType(vehicle, clazz)) {
 				count++;
@@ -179,8 +180,27 @@ public class VehicleManager {
 		return null;
 	}
 	
+	/*
+	 *  Calculate the maintenance cost for each vehicle in the vehicle list and return a random
+	 *  vehicle with the lowest maintenance cost.
+	 */
 	public Vehicle getVehicleWithLowestMaintenanceCost(double distance) {
-		return null;
+		ArrayList<Vehicle> lowestCostVehicles = new ArrayList<>();
+		double minCost = Double.MAX_VALUE;
+		
+		for (Vehicle vehicle : vehicleStock) {
+			double cost = vehicle.calculateMaintenanceCost(distance);
+			if (cost < minCost) {
+				minCost = cost;
+				lowestCostVehicles.clear();
+				lowestCostVehicles.add(vehicle);
+			} else if (cost == minCost) {
+				lowestCostVehicles.add(vehicle);
+			}
+		}
+		
+		// return null if empty return random vehicle if not.
+		return lowestCostVehicles.isEmpty() ? null : lowestCostVehicles.get(new Random().nextInt(lowestCostVehicles.size()));
 	}
 	
 	public ArrayList<Vehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice){
