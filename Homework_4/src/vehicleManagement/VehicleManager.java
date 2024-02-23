@@ -146,36 +146,51 @@ public class VehicleManager {
 	}
 	
 	public void displayAllTruckInformation() {
+		boolean foundTruck = false;
 		for (Vehicle vehicle : vehicleStock) {
 			if (vehicle instanceof Truck) {
+				foundTruck = true;
 				Truck truck = (Truck) vehicle;
 				System.out.println(truck + 
 						"Fuel Efficiency: " + truck.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
 						+ "Maintenance Cost: " + truck.calculateMaintenanceCost(VehicleManager.distance));
 			}
-		}		
+		}
+		if (!foundTruck) {
+			System.out.println("Truck not found in vehicleList.");
+		}
 	}
 	
 	public void displayAllSUVInformation() {
+		boolean foundSUV = false;
 		for (Vehicle vehicle : vehicleStock) {
 			if (vehicle instanceof SUV) {
+				foundSUV = true;
 				SUV suv = (SUV) vehicle;
 				System.out.println(suv + 
 						"Fuel Efficiency: " + suv.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
 						+ "Maintenance Cost: " + suv.calculateMaintenanceCost(VehicleManager.distance));
 			}
-		}				
+		}
+		if (!foundSUV) {
+			System.out.println("SUV not found in vehicleList.");
+		}
 	}
 	
 	public void displayAllMotorBikeInformation() {
+		boolean foundMotorBike = false;
 		for (Vehicle vehicle : vehicleStock) {
 			if (vehicle instanceof MotorBike) {
+				foundMotorBike = true;
 				MotorBike motorbike = (MotorBike) vehicle;
 				System.out.println(motorbike + 
 						"Fuel Efficiency: " + motorbike.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
 						+ "Maintenance Cost: " + motorbike.calculateMaintenanceCost(VehicleManager.distance));
 			}
-		}				
+		}
+		if (!foundMotorBike) {
+			System.out.println("MotorBike not found in vehicleList.")
+		}
 	}
 	
 	public void displayVehicleInformation(Vehicle v) {
