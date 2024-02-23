@@ -123,74 +123,45 @@ public class VehicleManager {
 	}
 
 	
-
+	/*
+	 * Helper method for displayAll(Class)Information methods.
+	 * Prints all elements from vehicleStock of a given class.
+	 */
+	private void displayVehicleClassInformation(Class<?> vehicleType) {
+		String vehicleTypeName = vehicleType.getSimpleName().toLowerCase(); // Get the type name for messages
+		boolean foundVehicle = false;
+		for (Vehicle vehicle : vehicleStock) {
+			if (isVehicleType(vehicle, vehicleType)) {
+				foundVehicle = true;
+				System.out.println(vehicle +
+						"Fuel Efficiency: " + vehicle.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) +
+						"Maintenance Cost: " + vehicle.calculateMaintenanceCost(VehicleManager.distance));
+			}
+		}
+		if (!foundVehicle) {
+			System.out.println(vehicleTypeName + " not found in vehicleList");
+		}
+	}
+	
 	
 	/*
 	 * This will display the information, including maintenance cost, fuel efficiency, and how the vehicle starts, of all the cars present in the vehicleList
 	 * Prints an error message if there is no car found.
 	 */
 	public void displayAllCarInformation() {
-		boolean foundCar = false;
-		for (Vehicle vehicle : vehicleStock) {
-			if (vehicle instanceof Car) {
-				foundCar = true;
-				Car car = (Car) vehicle;
-				System.out.println(car + 
-						"Fuel Efficiency: " + car.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
-						+ "Maintenance Cost: " + car.calculateMaintenanceCost(VehicleManager.distance));
-			}
-		}		
-		if (!foundCar) {
-			System.out.println("Car not found in vehicleList.");
-		}
+		displayVehicleClassInformation(Car.class);
 	}
 	
 	public void displayAllTruckInformation() {
-		boolean foundTruck = false;
-		for (Vehicle vehicle : vehicleStock) {
-			if (vehicle instanceof Truck) {
-				foundTruck = true;
-				Truck truck = (Truck) vehicle;
-				System.out.println(truck + 
-						"Fuel Efficiency: " + truck.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
-						+ "Maintenance Cost: " + truck.calculateMaintenanceCost(VehicleManager.distance));
-			}
-		}
-		if (!foundTruck) {
-			System.out.println("Truck not found in vehicleList.");
-		}
+		displayVehicleClassInformation(Truck.class);
 	}
 	
 	public void displayAllSUVInformation() {
-		boolean foundSUV = false;
-		for (Vehicle vehicle : vehicleStock) {
-			if (vehicle instanceof SUV) {
-				foundSUV = true;
-				SUV suv = (SUV) vehicle;
-				System.out.println(suv + 
-						"Fuel Efficiency: " + suv.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
-						+ "Maintenance Cost: " + suv.calculateMaintenanceCost(VehicleManager.distance));
-			}
-		}
-		if (!foundSUV) {
-			System.out.println("SUV not found in vehicleList.");
-		}
+		displayVehicleClassInformation(SUV.class);
 	}
 	
 	public void displayAllMotorBikeInformation() {
-		boolean foundMotorBike = false;
-		for (Vehicle vehicle : vehicleStock) {
-			if (vehicle instanceof MotorBike) {
-				foundMotorBike = true;
-				MotorBike motorbike = (MotorBike) vehicle;
-				System.out.println(motorbike + 
-						"Fuel Efficiency: " + motorbike.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
-						+ "Maintenance Cost: " + motorbike.calculateMaintenanceCost(VehicleManager.distance));
-			}
-		}
-		if (!foundMotorBike) {
-			System.out.println("MotorBike not found in vehicleList.");
-		}
+		displayVehicleClassInformation(MotorBike.class);
 	}
 	
 	public void displayVehicleInformation(Vehicle v) {
@@ -198,7 +169,7 @@ public class VehicleManager {
 	}
 	
 	public void displayAllVehicleInformation() {
-		
+		displayVehicleClassInformation(Vehicle.class);
 	}
 	
 	public boolean removeVehicle(Vehicle vehicle) {
