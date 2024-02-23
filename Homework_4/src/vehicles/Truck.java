@@ -18,7 +18,7 @@ public class Truck extends Vehicle {
 	public void startEngine() {
 		System.out.println("The car has been started by " + startType);
 	}
-	@Override
+	
 	public String toString() {
 		return "The type of this vehicle is Truck and has brand=" + brand + ", make=" + make + ", modelYear=" + modelYear + ", price=" + price + ", color="
 				+ color + ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders="
