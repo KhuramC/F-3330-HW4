@@ -189,7 +189,7 @@ public class VehicleManager {
 			}
 		}
 		if (!foundMotorBike) {
-			System.out.println("MotorBike not found in vehicleList.")
+			System.out.println("MotorBike not found in vehicleList.");
 		}
 	}
 	
