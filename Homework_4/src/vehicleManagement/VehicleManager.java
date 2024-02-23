@@ -160,7 +160,14 @@ public class VehicleManager {
 	}
 	
 	public void displayAllMotorBikeInformation() {
-		
+		for (Vehicle vehicle : vehicleStock) {
+			if (vehicle instanceof MotorBike) {
+				MotorBike motorbike = (MotorBike) vehicle;
+				System.out.println(motorbike + 
+						"Fuel Efficiency: " + motorbike.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
+						+ "Maintenance Cost: " + motorbike.calculateMaintenanceCost(VehicleManager.distance));
+			}
+		}				
 	}
 	
 	public void displayVehicleInformation(Vehicle v) {
