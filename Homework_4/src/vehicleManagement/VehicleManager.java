@@ -44,7 +44,7 @@ public class VehicleManager {
 			FileInputStream input = new FileInputStream(vehicleFilePath);
 			Scanner sc = new Scanner(input);
 			
-			ArrayList<Vehicle> p = new ArrayList<Vehicle>();
+			ArrayList<Vehicle> vehicleList = new ArrayList<Vehicle>();
 
 			// Skip first line (header)
 			sc.nextLine();
@@ -67,44 +67,57 @@ public class VehicleManager {
 				long modelYear = Long.parseLong(data[3]);
 				double price = Double.parseDouble(data[4]);
 				VehicleColor color = VehicleColor.valueOf(data[5]);
-				
-				type = 
-						//,Model,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType
-				String type = data[0];
-				String title = parts[1];
-				double price = Double.parseDouble(parts[2]);
-				int year = Integer.parseInt(parts[3]);
-				
-				switch(type) { //creates product based on their type and adds to ArrayList//
-				case "CD":
-					CDRecordProduct cd = new CDRecordProduct(title,price,year,genre);
-					p.add(cd);
+				FuelType fuelType = FuelType.valueOf(data[6]);
+				double mileage = Double.parseDouble(data[7]);
+				double mass = Double.parseDouble(data[8]);
+				int cylinders = Integer.parseInt(data[9]);
+				double gasTankCapacity = Double.parseDouble(data[10]);
+				StartMechanism startMechanism = StartMechanism.valueOf(data[11]);
+						
+						
+				//,Model,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType
+
+				switch(type) { //creates product based on their type and adds to ArrayList
+				case "Car":
+					Car car = new Car(model,make,modelYear,price,color,fuelType,mileage,mass,cylinders,gasTankCapacity,startMechanism);
+					vehicleList.add(car);
 					break;
-				case "Vinyl":
-					VinylRecordProduct vinyl = new VinylRecordProduct(title,price,year,genre);
-					p.add(vinyl);
+				case "Truck":
+					Truck truck = new Truck(model,make,modelYear,price,color,fuelType,mileage,mass,cylinders,gasTankCapacity,startMechanism);
+					vehicleList.add(truck);
 					break;
-				case "Tape":
-					TapeRecordProduct tape = new TapeRecordProduct(title,price,year,genre);
-					p.add(tape);
+				case "Motorbike":
+					MotorBike motorbike = new MotorBike(model,make,modelYear,price,color,fuelType,mileage,mass,cylinders,gasTankCapacity,startMechanism);
+					vehicleList.add(motorbike);
+					break;
+				case "SUV":
+					SUV suv = new SUV(model,make,modelYear,price,color,fuelType,mileage,mass,cylinders,gasTankCapacity,startMechanism);
+					vehicleList.add(suv);
 					break;
 				}
-			}
-			if(p.size() == 0) { //Check for if something went wrong
-				System.out.println("File is either empty or has been formatted incorrectly.");
-				System.out.println("Make sure the file is in Type,Model,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType format");
-				sc.close();
-				input.close();
-				return false;
+				
+				
+				
+				
 			}
 			
-			this.products = p;
+			// This should be unnecessary.
+//			if(vehicleList.size() == 0) { //Check for if something went wrong
+//				System.out.println("File is either empty or has been formatted incorrectly.");
+//				System.out.println("Make sure the file is in Type,Model,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType format");
+//				sc.close();
+//				input.close();
+//				return false;
+//			}
+			
+			this.vehicleStock = vehicleList;
 			sc.close();
 			input.close();
 			return true;
 		}
-		catch(FileNotFoundException e) { //Excepts if it doesn't work
-			System.out.println("File not found: " + e.getMessage());
+		catch(Exception e) { //Excepts if it doesn't work
+			e.printStackTrace();
+			System.out.println("Error reading file. Make sure it is formatted correctly.");
 			return false;
 		}
 	}
