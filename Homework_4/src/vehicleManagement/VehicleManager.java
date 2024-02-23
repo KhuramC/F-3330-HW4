@@ -167,8 +167,7 @@ public class VehicleManager {
 	 */
 	public int getNumberOfVehiclesByType(Class clazz) {
 		int count = 0;
-		for (Iterator<Vehicle> iterator = vehicleStock.iterator(); iterator.hasNext();) {
-			Vehicle vehicle = (Vehicle) iterator.next();
+		for (Vehicle vehicle : vehicleStock) {
 			if (isVehicleType(vehicle, clazz)) {
 				count++;
 			}
