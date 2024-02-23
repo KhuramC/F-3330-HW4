@@ -125,16 +125,24 @@ public class VehicleManager {
 	
 
 	
-	
+	/*
+	 * This will display the information, including maintenance cost, fuel efficiency, and how the vehicle starts, of all the cars present in the vehicleList
+	 * Prints an error message if there is no car found.
+	 */
 	public void displayAllCarInformation() {
+		boolean foundCar = false;
 		for (Vehicle vehicle : vehicleStock) {
 			if (vehicle instanceof Car) {
+				foundCar = true;
 				Car car = (Car) vehicle;
 				System.out.println(car + 
 						"Fuel Efficiency: " + car.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
 						+ "Maintenance Cost: " + car.calculateMaintenanceCost(VehicleManager.distance));
 			}
 		}		
+		if (!foundCar) {
+			System.out.println("Car not found in vehicleList.");
+		}
 	}
 	
 	public void displayAllTruckInformation() {
