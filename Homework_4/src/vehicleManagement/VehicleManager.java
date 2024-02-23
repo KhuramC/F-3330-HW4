@@ -138,7 +138,14 @@ public class VehicleManager {
 	}
 	
 	public void displayAllTruckInformation() {
-
+		for (Vehicle vehicle : vehicleStock) {
+			if (vehicle instanceof Truck) {
+				Truck truck = (Truck) vehicle;
+				System.out.println(truck + 
+						"Fuel Efficiency: " + truck.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
+						+ "Maintenance Cost: " + truck.calculateMaintenanceCost(VehicleManager.distance));
+			}
+		}		
 	}
 	
 	public void displayAllSUVInformation() {
