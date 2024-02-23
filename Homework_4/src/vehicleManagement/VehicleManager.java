@@ -9,7 +9,11 @@ import java.util.Random;
 import vehicles.*;
 
 public class VehicleManager {
+	
+	private final static double distance = 300;
 
+	private final static double fuelPrice = 3.25;
+	
 	private static VehicleManager instance = null;
 	
 	private static final String vehicleFilePath = "files/vehicleList.csv";
@@ -123,11 +127,18 @@ public class VehicleManager {
 	
 	
 	public void displayAllCarInformation() {
-		
+		for (Vehicle vehicle : vehicleStock) {
+			if (vehicle instanceof Car) {
+				Car car = (Car) vehicle;
+				System.out.println(car + 
+						"Fuel Efficiency: " + car.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) 
+						+ "Maintenance Cost: " + car.calculateMaintenanceCost(VehicleManager.distance));
+			}
+		}		
 	}
 	
 	public void displayAllTruckInformation() {
-		
+
 	}
 	
 	public void displayAllSUVInformation() {
