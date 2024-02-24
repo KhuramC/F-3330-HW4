@@ -1,6 +1,8 @@
 package vehicleManagement;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -203,8 +205,60 @@ public class VehicleManager {
 		return false;
 	}
 	
+	
+	/**
+	 * Saves VehicleStock into csv file based on file path with a given order(shown in header line). 
+	 * Returns false if an exception occurs.
+	 * @return boolean for if successful.
+	 */
 	public boolean saveVehicleList() {
-		return true;
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(vehicleFilePath));
+			
+			//header line//
+			bw.write("Type,Model,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType");
+			bw.newLine();
+			
+			for(Vehicle v: vehicleStock) {
+				String type = "";	
+				
+				if(v instanceof Car) {
+					type = Car.class.getSimpleName();
+				}
+				if(v instanceof SUV) {
+					type = SUV.class.getSimpleName();
+				}
+				if(v instanceof MotorBike) {
+					type = MotorBike.class.getSimpleName();
+				}
+				if(v instanceof Truck) {
+					type = Truck.class.getSimpleName();
+				}
+				
+				String model = v.getBrand();
+				String make = v.getMake();
+				long modelYear = v.getModelYear();
+				double price = v.getPrice();
+				FuelType ftype = v.getFuelType();
+				double mileage = v.getMileage();
+				double mass = v.getMass();
+				int cylinders = v.getCylinders();
+				double gasCapacity = v.getGasTankCapacity();
+				StartMechanism stype = v.getStartType();
+				bw.write(type + "," + model + "," + make + "," + modelYear + "," + price + "," +
+				ftype + "," + mileage + "," + mass + "," + cylinders + "," + gasCapacity + "," + stype);
+				bw.newLine();
+			}
+			bw.close();
+			
+			return true;
+		}catch(IOException e) {
+			e.printStackTrace();
+	        // False if failed
+	        return false;
+		}
+		
+		
 	}
 	
 	private boolean isVehicleType(Vehicle v, Class clazz) {
@@ -278,6 +332,7 @@ public class VehicleManager {
 		// return null if empty return random vehicle if not.
 		return lowestCostVehicles.isEmpty() ? null : lowestCostVehicles.get(new Random().nextInt(lowestCostVehicles.size()));
 	}
+	
 	/*
 	 * Gets list of the highest fuel efficiency per vehicle using the given distances and fuel prices.
 	 * returns the list of vehicles with highest fuel efficiency.
@@ -301,6 +356,7 @@ public class VehicleManager {
 	    return maxEfficiencyVehicles;
 
 	}
+	
 	/*
 	 * Gets list of the lowest fuel efficiency per vehicle using the given distances and fuel prices.
 	 * Using same comments as before. Same code just slightly different for the low.
