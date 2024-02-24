@@ -214,7 +214,22 @@ public class VehicleManager {
 	}
 	
 	public ArrayList<Vehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice){
-		return null;
+		double maxFuelEfficiency = Double.MIN_VALUE;
+	    ArrayList<Vehicle> maxEfficiencyVehicles = new ArrayList<>();
+
+	    for (Vehicle vehicle : vehicleStock) {
+	        double efficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+	        if (efficiency > maxFuelEfficiency) {
+	            maxFuelEfficiency = efficiency;
+	            maxEfficiencyVehicles.clear();
+	            maxEfficiencyVehicles.add(vehicle);
+	        } else if (efficiency == maxFuelEfficiency) {
+	            maxEfficiencyVehicles.add(vehicle);
+	        }
+	    }
+
+	    return maxEfficiencyVehicles;
+
 	}
 	
 	public ArrayList<Vehicle> getVehicleWithLowestFuelEfficiency(double distance, double fuelPrice){
