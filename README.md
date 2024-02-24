@@ -19,7 +19,10 @@ The program will read the inventory data from the file `vehicleList.csv` and dis
 
 ## Team Members  
 
-Alon Barzilay  
-Hipolito Sanchez  
+Alon Barzilay -
+
+Hipolito Sanchez -
+
 Khuram Choudhry - Created project/packages/file structre. Implemented Singleton methods for Vehicle Manager, created copy constructors, implemented displayVehicleInformation, getVehiclewithHighestMaintenanceCost, removeVehicle, saveVehicleList, tested in Main.java and fixed various bugs within other methods while testing.
-Trenton Roney  
+
+Trenton Roney -
