@@ -112,7 +112,7 @@ public class VehicleManager {
 	 * Helper method for displayAll(Class)Information methods.
 	 * Prints all elements from vehicleStock of a given class.
 	 */
-	private void displayVehicleClassInformation(Class<?> vehicleType) {
+	private void displayAllVehicleClassInformation(Class<?> vehicleType) {
 		String vehicleTypeName = vehicleType.getSimpleName().toLowerCase(); // Get the type name for messages
 		boolean foundVehicle = false;
 		for (Vehicle vehicle : vehicleStock) {
@@ -134,19 +134,19 @@ public class VehicleManager {
 	 * Prints an error message if there is no car found.
 	 */
 	public void displayAllCarInformation() {
-		displayVehicleClassInformation(Car.class);
+		displayAllVehicleClassInformation(Car.class);
 	}
 	
 	public void displayAllTruckInformation() {
-		displayVehicleClassInformation(Truck.class);
+		displayAllVehicleClassInformation(Truck.class);
 	}
 	
 	public void displayAllSUVInformation() {
-		displayVehicleClassInformation(SUV.class);
+		displayAllVehicleClassInformation(SUV.class);
 	}
 	
 	public void displayAllMotorBikeInformation() {
-		displayVehicleClassInformation(MotorBike.class);
+		displayAllVehicleClassInformation(MotorBike.class);
 	}
 	
 	public void displayVehicleInformation(Vehicle v) {
@@ -154,7 +154,7 @@ public class VehicleManager {
 	}
 	
 	public void displayAllVehicleInformation() {
-		displayVehicleClassInformation(Vehicle.class);
+		displayAllVehicleClassInformation(Vehicle.class);
 	}
 	
 	public boolean removeVehicle(Vehicle vehicle) {

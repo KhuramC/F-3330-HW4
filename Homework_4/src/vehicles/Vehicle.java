@@ -118,10 +118,6 @@ public abstract class Vehicle {
 	public void setStartType(StartMechanism startType) {
 		this.startType = startType;
 	}
-<<<<<<< HEAD
-    
-}
-=======
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -142,4 +138,4 @@ public abstract class Vehicle {
 		return false;
 	}
 }
->>>>>>> main
+
