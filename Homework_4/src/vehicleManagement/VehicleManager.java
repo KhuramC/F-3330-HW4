@@ -212,7 +212,10 @@ public class VehicleManager {
 		// return null if empty return random vehicle if not.
 		return lowestCostVehicles.isEmpty() ? null : lowestCostVehicles.get(new Random().nextInt(lowestCostVehicles.size()));
 	}
-	
+	/*
+	 * Gets list of the highest fuel efficiency per vehicle using the given distances and fuel prices.
+	 * returns the list of vehicles with highest fuel efficiency.
+	 */
 	public ArrayList<Vehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice){
 		double maxFuelEfficiency = Double.MIN_VALUE;
 	    ArrayList<Vehicle> maxEfficiencyVehicles = new ArrayList<>();
