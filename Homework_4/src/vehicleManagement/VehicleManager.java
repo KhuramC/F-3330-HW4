@@ -268,19 +268,26 @@ public class VehicleManager {
 	    return minEfficiencyVehicles;
 	}
 	
+	// Calculate the mean fuel efficiency for SUVs. If there are no SUVs, returns -1.0
 	public double getAverageFuelEfficiencyOfSUVs(double distance, double fuelPrice) {
-		if (vehicles.isEmpty()) {
-			return -1;
+		if (vehicleStock.isEmpty()) {
+			return -1.0;
 		}
+		
 		double totalFuelEfficiency = 0.0;
 		int suvCount = 0;
-		
-		for (Vehicle vehicle : vehicles) {
-			if ()
+		for (Vehicle vehicle : vehicleStock) {
+			if (isVehicleType(vehicle, SUV.class)) {
+				
+			}
+			totalFuelEfficiency += vehicle.calculateFuelEfficiency(distance, fuelPrice);
 		}
 		
-		double average = totalFuelEfficiency/suvCount; 
-		return average;
+		if (suvCount == 0) {
+			return -1.0;
+		}
+		
+		return totalFuelEfficiency / suvCount;
 	}
 	
 	
