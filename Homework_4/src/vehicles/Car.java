@@ -7,6 +7,7 @@ public class Car extends Vehicle {
 		super( brand,  make,  modelYear,  price, color,  fuelType,
 				  mileage,  mass,  cylinders,  gasTankCapacity,  startType); 
 	}
+	/* Abstract functions that calculates maintenance cost and fuel efficiency */
 	public double calculateMaintenanceCost(double distance) {
 		double cost = distance * mass * (Vehicle.currentYear-modelYear) * cylinders * 0.0005; // given equation
 		return cost;
