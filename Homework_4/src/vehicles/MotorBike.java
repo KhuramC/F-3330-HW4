@@ -7,6 +7,13 @@ public class MotorBike extends Vehicle {
 		super( brand,  make,  modelYear,  price, color,  fuelType,
 				  mileage,  mass,  cylinders,  gasTankCapacity,  startType);
 	}
+	
+	//Copy Constructor//
+	public MotorBike(MotorBike mbike) {
+		super(mbike.getBrand(), mbike.getMake(), mbike.getModelYear(), mbike.getPrice(), mbike.getColor(), mbike.getFuelType(),
+				mbike.getMileage(), mbike.getMass(), mbike.getCylinders(), mbike.getGasTankCapacity(), mbike.getStartType() );
+	}
+	
 	/* Abstract functions that calculates maintenance cost and fuel efficiency */ 
 	public double calculateMaintenanceCost(double distance) {
 		double cost = distance * mass * (Vehicle.currentYear-modelYear) * cylinders * 0.0002; // given equation

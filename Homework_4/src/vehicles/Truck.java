@@ -7,6 +7,12 @@ public class Truck extends Vehicle {
 		super( brand,  make,  modelYear,  price, color,  fuelType,
 				  mileage,  mass,  cylinders,  gasTankCapacity,  startType);
 	}
+	
+	//Copy Constructor//
+	public Truck(Truck truck) {
+		super(truck.getBrand(), truck.getMake(), truck.getModelYear(), truck.getPrice(), truck.getColor(), truck.getFuelType(),
+				truck.getMileage(), truck.getMass(), truck.getCylinders(), truck.getGasTankCapacity(), truck.getStartType() );
+	}
 	/* Abstract functions that calculates maintenance cost and fuel efficiency */ 
 	public double calculateMaintenanceCost(double distance) {
 		double cost = distance * mass * (Vehicle.currentYear-modelYear) * cylinders * 0.002; // given equation

@@ -8,6 +8,13 @@ public class SUV extends Vehicle {
 			  mileage,  mass,  cylinders,  gasTankCapacity,  startType);
 
 	}
+	
+	//Copy Constructor//
+	public SUV(SUV suv) {
+		super(suv.getBrand(), suv.getMake(), suv.getModelYear(), suv.getPrice(), suv.getColor(), suv.getFuelType(),
+				suv.getMileage(), suv.getMass(), suv.getCylinders(), suv.getGasTankCapacity(), suv.getStartType() );
+	}
+	
 	/* Abstract functions that calculates maintenance cost and fuel efficiency */
 	public double calculateMaintenanceCost(double distance) {
 		double cost = distance * mass * (Vehicle.currentYear-modelYear) * cylinders * 0.001; // given equation
