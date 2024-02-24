@@ -170,7 +170,7 @@ public class VehicleManager {
 	}
 	
 	private boolean isVehicleType(Vehicle v, Class clazz) {
-		return true;
+		return clazz.isInstance(v);
 	}
 	
 	/*
