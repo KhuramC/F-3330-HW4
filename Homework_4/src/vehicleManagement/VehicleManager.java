@@ -311,7 +311,7 @@ public class VehicleManager {
 			}
 		}
 
-		return highCostVehicles.get(new Random().nextInt(0, highCostVehicles.size()-1));	
+		return highCostVehicles.get(new Random().nextInt(highCostVehicles.size()));	
 
 		
 		
