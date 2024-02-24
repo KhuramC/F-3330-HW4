@@ -19,7 +19,7 @@ The program will read the inventory data from the file `vehicleList.csv` and dis
 
 ## Team Members  
 
-Alon Barzilay -
+Alon Barzilay - Implemented main Vehicle class and all subclasses including abstract methods calculateMaintenanceCost, toString, and calculateFuelEfficiency.
 
 Hipolito Sanchez -
 
