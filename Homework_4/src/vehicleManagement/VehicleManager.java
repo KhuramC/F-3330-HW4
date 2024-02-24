@@ -224,8 +224,36 @@ public class VehicleManager {
 		return count;
 	}
 	
+	
+	/**
+	 * Returns a random vehicle with the highest maintenance cost. Returns null if there is none.
+	 * @param distance distance used to calculate maintenance cost
+	 * @return Vehicle to be returned
+	 */
 	public Vehicle getVehicleWithHighestMaintenanceCost(double distance) {
-		return null;
+		if(vehicleStock.isEmpty()) {
+			return null;
+		}
+		ArrayList<Vehicle> highCostVehicles = new ArrayList<Vehicle>();
+		double maxCost = 0;
+		
+		for(Vehicle v : vehicleStock) {
+			Double currentCost = v.calculateMaintenanceCost(distance);
+			if(currentCost > maxCost) {
+				maxCost = currentCost;
+				highCostVehicles.clear();
+				highCostVehicles.add(v);
+				continue;
+			}
+			if(currentCost == maxCost) {
+				highCostVehicles.add(v);
+			}
+		}
+
+		return highCostVehicles.get(new Random().nextInt(0, highCostVehicles.size()-1));	
+
+		
+		
 	}
 	
 	/*
