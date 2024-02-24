@@ -47,6 +47,14 @@ public class VehicleManager {
 	 * Return false if cannot read/find the file.
 	 */
 	
+	public static double getDistance() {
+		return distance;
+	}
+
+	public static double getFuelprice() {
+		return fuelPrice;
+	}
+
 	public boolean initializeStock() {
 	    try (FileInputStream input = new FileInputStream(vehicleFilePath);
 	         Scanner sc = new Scanner(input)) {
