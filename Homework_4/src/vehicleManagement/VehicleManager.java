@@ -161,8 +161,16 @@ public class VehicleManager {
 		return true;
 	}
 	
+	/*
+	 * Adds the given vehicle into the vehicleList. 
+	 * Returns true if the addition is successful, false otherwise.
+	 */
 	public boolean addVehicle(Vehicle vehicle) {
-		return true;
+		if (vehicle instanceof Vehicle) {
+			vehicleStock.add(vehicle);
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean saveVehicleList() {
