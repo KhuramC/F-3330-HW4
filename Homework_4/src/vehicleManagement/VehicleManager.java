@@ -171,8 +171,23 @@ public class VehicleManager {
 		displayAllVehicleClassInformation(Vehicle.class);
 	}
 	
+	
+	/**
+	 * Attempts to removed given vehicle. Returns false if unsuccessful.
+	 * @param vehicle to be removed
+	 * @return boolean of whether successful
+	 */
 	public boolean removeVehicle(Vehicle vehicle) {
-		return true;
+		Iterator<Vehicle> it = vehicleStock.iterator();
+		while(it.hasNext()) {
+			Vehicle currentv = it.next();
+			if(currentv.equals(vehicle)) {
+				it.remove();
+				return true;
+			}
+			
+		}
+		return false;
 	}
 	
 	/*
@@ -181,8 +196,9 @@ public class VehicleManager {
 	 */
 	public boolean addVehicle(Vehicle vehicle) {
 		if (vehicle instanceof Vehicle) {
-			vehicleStock.add(vehicle);
-			return true;
+				vehicleStock.add(vehicle);
+				return true;
+			
 		}
 		return false;
 	}
