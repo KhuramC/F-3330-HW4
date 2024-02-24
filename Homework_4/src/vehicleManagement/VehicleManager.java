@@ -162,7 +162,7 @@ public class VehicleManager {
 					"Maintenance Cost: " + v.calculateMaintenanceCost(VehicleManager.distance) + 
 					"Start: " + v.getStartType().toString());
 		}else {
-			System.out.println("The vehicle " + v + " was not found and is presumed to not be managed by us.");
+			System.out.println("The vehicle given was not found and is presumed to not be managed by us.");
 		}
 		
 		
