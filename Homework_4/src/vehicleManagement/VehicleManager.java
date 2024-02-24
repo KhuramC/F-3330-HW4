@@ -120,7 +120,8 @@ public class VehicleManager {
 				foundVehicle = true;
 				System.out.println(vehicle +
 						"Fuel Efficiency: " + vehicle.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) +
-						"Maintenance Cost: " + vehicle.calculateMaintenanceCost(VehicleManager.distance));
+						"Maintenance Cost: " + vehicle.calculateMaintenanceCost(VehicleManager.distance) + 
+						"Start: " + vehicle.getStartType().toString());
 			}
 		}
 		if (!foundVehicle) {
@@ -149,7 +150,20 @@ public class VehicleManager {
 		displayAllVehicleClassInformation(MotorBike.class);
 	}
 	
+	/**
+	 * Displays Vehicles's Fuel Efficiency, maintenance cost, and how it starts.
+	 * @param v Vehicle possibly being managed
+	 */
 	public void displayVehicleInformation(Vehicle v) {
+		if(vehicleStock.contains(v)) {
+			System.out.println(v +
+					"Fuel Efficiency: " + v.calculateFuelEfficiency(VehicleManager.distance, VehicleManager.fuelPrice) +
+					"Maintenance Cost: " + v.calculateMaintenanceCost(VehicleManager.distance) + 
+					"Start: " + v.getStartType().toString());
+		}else {
+			System.out.println("The vehicle " + v + " was not found and is presumed to not be managed by us.");
+		}
+		
 		
 	}
 	
