@@ -278,9 +278,9 @@ public class VehicleManager {
 		int suvCount = 0;
 		for (Vehicle vehicle : vehicleStock) {
 			if (isVehicleType(vehicle, SUV.class)) {
-				
+				totalFuelEfficiency += vehicle.calculateFuelEfficiency(distance, fuelPrice);
+				suvCount++;
 			}
-			totalFuelEfficiency += vehicle.calculateFuelEfficiency(distance, fuelPrice);
 		}
 		
 		if (suvCount == 0) {
