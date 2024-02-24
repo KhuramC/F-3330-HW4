@@ -8,6 +8,7 @@ public class SUV extends Vehicle {
 			  mileage,  mass,  cylinders,  gasTankCapacity,  startType);
 
 	}
+	/* Abstract functions that calculates maintenance cost and fuel efficiency */
 	public double calculateMaintenanceCost(double distance) {
 		double cost = distance * mass * (Vehicle.currentYear-modelYear) * cylinders * 0.001; // given equation
 		return cost;
