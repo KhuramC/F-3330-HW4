@@ -219,24 +219,45 @@ public class VehicleManager {
 	public ArrayList<Vehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice){
 		double maxFuelEfficiency = Double.MIN_VALUE;
 	    ArrayList<Vehicle> maxEfficiencyVehicles = new ArrayList<>();
-
+	    // Go through all vehicles
 	    for (Vehicle vehicle : vehicleStock) {
-	        double efficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+	        // Calculations for fuel efficiency
+	    	double efficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
 	        if (efficiency > maxFuelEfficiency) {
-	            maxFuelEfficiency = efficiency;
-	            maxEfficiencyVehicles.clear();
+	            maxFuelEfficiency = efficiency; // Update fuel efficiency
+	            maxEfficiencyVehicles.clear(); // Clear
 	            maxEfficiencyVehicles.add(vehicle);
 	        } else if (efficiency == maxFuelEfficiency) {
+	        	// if efficiency is the same as the max, add the vehicle
 	            maxEfficiencyVehicles.add(vehicle);
 	        }
 	    }
-
 	    return maxEfficiencyVehicles;
 
 	}
-	
+	/*
+	 * Gets list of the lowest fuel efficiency per vehicle using the given distances and fuel prices.
+	 * Using same comments as before. Same code just slightly different for the low.
+	 * returns the list of vehicles with lowest fuel efficiency.
+	 */
 	public ArrayList<Vehicle> getVehicleWithLowestFuelEfficiency(double distance, double fuelPrice){
-		return null;
+		double minFuelEfficiency = Double.MAX_VALUE;
+	    ArrayList<Vehicle> minEfficiencyVehicles = new ArrayList<>();
+	 // Go through all vehicles
+	    for (Vehicle vehicle : vehicleStock) {
+	    	// Calculations for fuel efficiency
+	        double efficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+	        if (efficiency < minFuelEfficiency) {
+	            minFuelEfficiency = efficiency; // Update fuel efficiency
+	            minEfficiencyVehicles.clear(); // Clear
+	            minEfficiencyVehicles.add(vehicle);
+	        } else if (efficiency == minFuelEfficiency) {
+	            // if efficiency is the same as the min, add the vehicle
+	        	minEfficiencyVehicles.add(vehicle);
+	        }
+	    }
+
+	    return minEfficiencyVehicles;
 	}
 	
 	public double getAverageFuelEfficiencyOfSUVs(double distance, double fuelPrice) {
