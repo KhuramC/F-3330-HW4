@@ -77,10 +77,13 @@ public class VehicleManager {
 	        }
 
 	        this.vehicleStock = vehicleList;
+	        sc.close();
+	        input.close();
 	        return true;
 
 	    } catch (IOException e) {
 	        System.out.println("Error reading file: " + e.getMessage());
+	        
 	        return false;
 	    } catch (IllegalArgumentException e) {
 	        System.out.println(e.getMessage());
@@ -246,13 +249,14 @@ public class VehicleManager {
 				String make = v.getMake();
 				long modelYear = v.getModelYear();
 				double price = v.getPrice();
+				VehicleColor color = v.getColor();
 				FuelType ftype = v.getFuelType();
 				double mileage = v.getMileage();
 				double mass = v.getMass();
 				int cylinders = v.getCylinders();
 				double gasCapacity = v.getGasTankCapacity();
 				StartMechanism stype = v.getStartType();
-				bw.write(type + "," + model + "," + make + "," + modelYear + "," + price + "," +
+				bw.write(type + "," + model + "," + make + "," + modelYear + "," + price + "," + color + "," + 
 				ftype + "," + mileage + "," + mass + "," + cylinders + "," + gasCapacity + "," + stype);
 				bw.newLine();
 			}
