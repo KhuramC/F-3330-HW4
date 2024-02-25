@@ -54,7 +54,12 @@ public class VehicleManager {
 	public static double getFuelprice() {
 		return fuelPrice;
 	}
-
+/*
+ * Reads the data from a CSV file located at vehicleFilePath. Initialize each of the Vehicle 
+ * objects 
+ * Return true if the read file and initialization are successful.
+ * Return false if cannot read/find the file.
+ */
 	public boolean initializeStock() {
 	    try (FileInputStream input = new FileInputStream(vehicleFilePath);
 	         Scanner sc = new Scanner(input)) {
@@ -91,6 +96,7 @@ public class VehicleManager {
 	    }
 	}
 
+	// Parse the given string from the csv file
 	private Vehicle parseVehicleData(String[] data) {
 		// Extract fields based on ordering of header
 		String type = data[0];
@@ -122,7 +128,7 @@ public class VehicleManager {
 	
 	/*
 	 * Helper method for displayAll(Class)Information methods.
-	 * Prints all elements from vehicleStock of a given class.
+	 * Prints all elements from vehicleStock of a given class. Prints an error message if none found.
 	 */
 	private void displayAllVehicleClassInformation(Class<?> vehicleType) {
 		String vehicleTypeName = vehicleType.getSimpleName().toLowerCase(); // Get the type name for messages
@@ -137,14 +143,14 @@ public class VehicleManager {
 			}
 		}
 		if (!foundVehicle) {
-			System.out.println(vehicleTypeName + " not found in vehicleList");
+			System.out.println(vehicleTypeName + "s not found in vehicleList");
 		}
 	}
 	
 	
 	/*
-	 * This will display the information, including maintenance cost, fuel efficiency, and how the vehicle starts, of all the cars present in the vehicleList
-	 * Prints an error message if there is no car found.
+	 * These methods will display the information, including maintenance cost, fuel efficiency, and how the vehicle starts, of all the cars present in the vehicleList
+	 * Prints an error message if there is no vehicle found.
 	 */
 	public void displayAllCarInformation() {
 		displayAllVehicleClassInformation(Car.class);
@@ -175,10 +181,8 @@ public class VehicleManager {
 		}else {
 			System.out.println("The vehicle given was not found and is presumed to not be managed by us.");
 		}
-		
-		
 	}
-	
+	// Displays the contents of vehicleStock
 	public void displayAllVehicleInformation() {
 		displayAllVehicleClassInformation(Vehicle.class);
 	}
@@ -272,6 +276,7 @@ public class VehicleManager {
 		
 	}
 	
+	// Compare classes between a given class and vehicle object. Returns true or false.
 	private boolean isVehicleType(Vehicle v, Class clazz) {
 		return clazz.isInstance(v);
 	}
