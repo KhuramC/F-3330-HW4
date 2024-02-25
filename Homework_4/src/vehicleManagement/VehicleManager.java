@@ -314,11 +314,11 @@ public class VehicleManager {
 				highCostVehicles.add(v);
 			}
 		}
-
+		
+		if (highCostVehicles.isEmpty()) {
+			return null;
+		}
 		return highCostVehicles.get(new Random().nextInt(highCostVehicles.size()));	
-
-		
-		
 	}
 	
 	/*
