@@ -1,6 +1,8 @@
 package vehicles;
 
+// Abstract class representing a vehicle with common properties and methods
 public abstract class Vehicle {
+	// Protected fields to store vehicle attributes
 	protected String brand;
 	protected String make;
     protected long modelYear;
@@ -13,7 +15,7 @@ public abstract class Vehicle {
     protected double gasTankCapacity;
     protected StartMechanism startType;
   
-  
+    // Constructor to initialize a Vehicle object with given parameters
     public Vehicle(String brand, String make, long modelYear, double price, VehicleColor color, FuelType fuelType,
 			double mileage, double mass, int cylinders, double gasTankCapacity, StartMechanism startType) {
     	super();
@@ -45,13 +47,16 @@ public abstract class Vehicle {
 		this.startType = v.getStartType();
     }
     
+    // Abstract methods to be implemented by concrete subclasses
     public abstract double calculateMaintenanceCost(double distance); // calculates maintenance cost for a specific vehicle
     public abstract double calculateFuelEfficiency(double distance, double fuelPrice); //calculates the engine efficiency
     public abstract void startEngine(); // prints how the vehicle starts
     public abstract String toString(); // prints information of vehicle.
     
+    // Static constant for the current year
     public static final int currentYear = 2024;
   
+    // Getters and setters for all fields
 	public String getBrand() {
 		return brand;
 	}
@@ -119,6 +124,7 @@ public abstract class Vehicle {
 		this.startType = startType;
 	}
 	
+	// Overridden equals method to compare two vehicle objects based on their properties
 	@Override
 	public boolean equals(Object obj) {
 		Vehicle v = ((Vehicle)obj);
