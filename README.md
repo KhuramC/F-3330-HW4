@@ -21,7 +21,17 @@ The program will read the inventory data from the file `vehicleList.csv` and dis
 
 Alon Barzilay - Implemented main Vehicle class and all subclasses including abstract methods calculateMaintenanceCost, toString, and calculateFuelEfficiency.
 
-Hipolito Sanchez -
+Hipolito Sanchez - Implemented methods:
+getAverageFuelEfficiencyOfSUVs
+addVehicle
+isVehicleType
+initializeStock
+displayAllCarInformation
+displayAllTruckInfoemation
+displayAllSUVInformation
+displayAllMotorBikeInformation
+displayAllVehicleInformation,
+implemented enums
 
 Khuram Choudhry - Created project/packages/file structre. Implemented Singleton methods for Vehicle Manager, created copy constructors, implemented displayVehicleInformation, getVehiclewithHighestMaintenanceCost, removeVehicle, saveVehicleList, tested in Main.java and fixed various bugs within other methods while testing.
 
