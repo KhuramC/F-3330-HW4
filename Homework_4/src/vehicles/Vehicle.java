@@ -122,8 +122,8 @@ public abstract class Vehicle {
 	@Override
 	public boolean equals(Object obj) {
 		Vehicle v = ((Vehicle)obj);
-		if(this.brand == v.getBrand() &&
-		this.make == v.getMake() &&
+		if(this.brand.equals(v.getBrand()) &&
+		this.make.equals(v.getMake()) &&
 		this.modelYear == v.getModelYear() &&
 		this.price == v.getPrice() &&
 		this.color == v.getColor() &&
