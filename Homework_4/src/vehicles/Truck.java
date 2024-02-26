@@ -1,7 +1,7 @@
 package vehicles;
 
 public class Truck extends Vehicle {
-
+	// Constructor to initialize a Truck object with given parameters
 	public Truck(String brand, String make, long modelYear, double price, VehicleColor color, FuelType fuelType,
 			 double mileage, double mass, int cylinders, double gasTankCapacity, StartMechanism startType) {
 		super( brand,  make,  modelYear,  price, color,  fuelType,
@@ -25,7 +25,7 @@ public class Truck extends Vehicle {
 	public void startEngine() {
 		System.out.println("The car has been started by " + startType);
 	}
-	
+	// toString specific to subclass.
 	public String toString() {
 		return "The type of this vehicle is Truck and has brand=" + brand + ", make=" + make + ", modelYear=" + modelYear + ", price=" + price + ", color="
 				+ color + ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders="

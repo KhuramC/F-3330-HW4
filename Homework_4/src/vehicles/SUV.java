@@ -1,7 +1,7 @@
 package vehicles;
 
 public class SUV extends Vehicle {
-
+	// Constructor to initialize a SUV object with given parameters
 	public SUV(String brand, String make, long modelYear, double price, VehicleColor color, FuelType fuelType,
 		 double mileage, double mass, int cylinders, double gasTankCapacity, StartMechanism startType) {
 	super( brand,  make,  modelYear,  price, color,  fuelType,
@@ -27,7 +27,7 @@ public class SUV extends Vehicle {
 	public void startEngine() {
 		System.out.println("The car has been started by " + startType);
 	}
-	
+	// toString specific to subclass.
 	public String toString() {
 		return "The type of this vehicle is SUV and has brand=" + brand + ", make=" + make + ", modelYear=" + modelYear + ", price=" + price + ", color="
 				+ color + ", fuelType=" + fuelType + ", mileage=" + mileage + ", mass=" + mass + ", cylinders="

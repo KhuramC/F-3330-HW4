@@ -1,5 +1,5 @@
 package vehicles;
-
+// Enum for color types of vehicles.
 public enum VehicleColor {
 	BLACK,
 	RED,

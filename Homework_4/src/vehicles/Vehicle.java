@@ -32,7 +32,7 @@ public abstract class Vehicle {
 		this.startType = startType;
 	}
     
-    //copy constructor
+    // copy constructor
     public Vehicle(Vehicle v) {
     	this.brand = v.getBrand();
 		this.make = v.getMake();
